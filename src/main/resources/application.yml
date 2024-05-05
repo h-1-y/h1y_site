@@ -1,0 +1,22 @@
+spring :
+  datasource :
+    url : jdbc:oracle:thin:@localhost:1521/xe
+    username : h1y_store
+    password : 1234
+    driver-class-name : oracle.jdbc.driver.OracleDriver
+    
+  jpa :
+    hibernate :
+      ddl-auto : create
+#      ddl-auto : none
+    properties :
+      hibernate :
+#        show_sql : true
+        format_sql : true
+        default_batch_fetch_size : 100
+#    open-in-view : false
+        
+logging :
+  level : 
+    org.hibernate.SQL : debug
+    org.hibernate.type : trace # 쿼리 파라미터를 로그로 표현해줌 근데 보기 불편함
