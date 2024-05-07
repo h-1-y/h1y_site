@@ -20,3 +20,10 @@ logging :
   level : 
     org.hibernate.SQL : debug
     org.hibernate.type : trace # 쿼리 파라미터를 로그로 표현해줌 근데 보기 불편함
+    
+server : 
+  error : 
+    include-exception: true
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: always

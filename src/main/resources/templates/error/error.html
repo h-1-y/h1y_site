@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{admin/include/header :: header}"></head>
+<body>
+	
+	<div class="container my-5" style="padding-top: 15%">
+		<div class="p-5 text-center bg-body-tertiary">
+			<div class="container py-5">
+				<h1 class="text-body-emphasis" th:text="${ 'Error ( ' + code + ' )' }"></h1>
+				<p class="col-lg-8 mx-auto lead">
+					msg : <code th:text="${msg}"></code>
+				</p>
+				<p class="col-lg-8 mx-auto lead">
+					timestamp : <code th:text="${timestamp}"></code>
+				</p>
+			</div>
+		</div>
+	</div>
+		
+</body>
+</html>
