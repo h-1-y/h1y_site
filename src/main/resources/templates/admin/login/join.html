@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>h1y Store - CMS</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="/resources/admin/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/admin/css/checkout.css" rel="stylesheet">
+	<script src="/resources/admin/js/bootstrap.bundle.min.js"></script>
+	<link rel="icon" type="image/x-icon" href="/resources/img/favicon.ico" />
+<style>
+	.red {
+		color: #C90000;
+		padding-left: 3px;
+	}
+</style>
+</head>
+<body class="bg-body-tertiary">
+	<div class="container">
+		<main>
+			<div class="py-5 text-center">
+				<h2>Join form</h2>
+			</div>
+			<div class="row g-5" style="padding-left: 25%;">
+				<div class="col-md-7 col-lg-8">
+					<form class="needs-validation" method="post">
+						<div class="row g-3">
+							<div class="col-12">
+								<label for="admId" class="form-label">ID<span class="red">*</span></label>
+								<div class="input-group has-validation">
+									<input type="text" class="form-control" id="admId" placeholder="ID" name="admId">
+									<div class="invalid-feedback">Your username is required.</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<label for="admPassword" class="form-label">Password<span class="red">*</span></label>
+								<div class="input-group has-validation">
+									<input type="text" class="form-control" id="admPassword" placeholder="Password" name="admPassword">
+									<div class="invalid-feedback">Your username is required.</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<label for="admPasswordCheck" class="form-label">Password Check<span class="red">*</span></label>
+								<div class="input-group has-validation">
+									<input type="text" class="form-control" id="admPasswordCheck" placeholder="Password Check" name="admPasswordCheck">
+									<div class="invalid-feedback">Your username is required.</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<label for="admName" class="form-label">Name<span class="red">*</span></label>
+								<div class="input-group has-validation">
+									<input type="text" class="form-control" id="admName" placeholder="Username" name="admName">
+									<div class="invalid-feedback">Your username is required.</div>
+								</div>
+							</div>
+
+							<div class="col-12">
+								<label for="email" class="form-label">Email<span class="red">*</span></label>
+								<input type="email" class="form-control" id="email" placeholder="you@example.com" name="email">
+								<div class="invalid-feedback">Please enter a valid email address for shipping updates.</div>
+							</div>
+
+							<div class="col-12">
+								<label for="address" class="form-label">Address<span class="red">*</span></label> 
+								<input type="text" class="form-control" id="address" name="address">
+								<div class="invalid-feedback">Please enter your shipping address.</div>
+							</div>
+							
+							<div class="col-sm-6">
+								<label for="adrsDet" class="form-label">Address Detail</label>
+								<span class="text-body-secondary">(Optional)</span>
+								<input type="text" class="form-control" id="adrsDet" name="adrsDet">
+								<div class="invalid-feedback">
+									Valid first name is required.
+								</div>
+							</div>
+							
+							<div class="col-sm-6">
+								<label for="zipcode" class="form-label">Zipcode<span class="red">*</span></label>
+								<input type="text" class="form-control" id="zipcode" name="zipcode">
+								<div class="invalid-feedback">Valid first name is required.</div>
+							</div>
+						</div>
+						<hr class="my-4">
+						<button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+						<hr class="my-4">
+					</form>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>

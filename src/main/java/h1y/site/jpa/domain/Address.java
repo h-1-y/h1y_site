@@ -1,18 +1,22 @@
 package h1y.site.jpa.domain;
 
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
 
 @Embeddable
+@Getter
 public class Address {
 
-	private String city;
-	private String street;
+	private String address;
+	private String adrsDet;
 	private String zipcode;
 	
-	public Address(String city, String street, String zipcode) {
+	protected Address() {}
+	
+	public Address(String address, String adrsDet, String zipcode) {
 		
-		this.city = city;
-		this.street = street;
+		this.address = address;
+		this.adrsDet = adrsDet;
 		this.zipcode = zipcode;
 		
 	}
