@@ -9,6 +9,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import h1y.site.jpa.dto.ResultMessage;
+import h1y.site.jpa.dto.ResultStatus;
 import h1y.site.jpa.form.AdminForm;
 import h1y.site.jpa.service.AdminService;
 import jakarta.servlet.RequestDispatcher;
@@ -45,19 +47,28 @@ public class AdminLoginController {
 		// validation check
 		if ( result.hasErrors() ) {
 			
-			System.out.println("check here");
-			
-			for ( FieldError error : result.getFieldErrors() ) {
-				
+			for ( FieldError error : result.getFieldErrors() ) 
 				logger.info("■ JOIN VALIDATION ERROR > : " + error.getDefaultMessage());
 				
-			}
-			
 			return "admin/login/join";
 			
 		}
 		
-		adminService.join(adminForm);
+		ResultMessage resultMsg = adminService.join(adminForm);
+		
+		if ( resultMsg.getStatus().equals(ResultStatus.SUSSECE) ) {
+			
+			System.out.println("status ====== " + resultMsg.getStatus());
+			System.out.println("message ===== " + resultMsg.getMessage());
+			System.out.println("returnUrl === " + resultMsg.getReturnUrl());
+			
+		} else {
+			
+			System.out.println("status ====== " + resultMsg.getStatus());
+			System.out.println("message ===== " + resultMsg.getMessage());
+			System.out.println("returnUrl === " + resultMsg.getReturnUrl());
+			
+		}
 		
 		return "redirect:/adm/login";
 		

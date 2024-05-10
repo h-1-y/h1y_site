@@ -19,7 +19,7 @@
 	<div class="container">
 		<main>
 			<div class="py-5 text-center">
-				<h2>Admin Join form</h2>
+				<h2>관리자 회원가입</h2>
 			</div>
 			<div class="row g-5" style="padding-left: 27%;">
 				<div class="col-md-7 col-lg-8">
@@ -33,21 +33,21 @@
 								</div>
 							</div>
 							<div class="col-12">
-								<label for="admPassword" class="form-label">Password<span class="red">*</span></label>
+								<label for="admPassword" class="form-label">비밀번호<span class="red">*</span></label>
 								<div class="input-group has-validation">
 									<input type="text" class="form-control" th:field="*{admPassword}" placeholder="Password">
 									<div class="validation-div" th:if="${#fields.hasErrors('admPassword')}" th:errors="*{admPassword}">Your username is required.</div>
 								</div>
 							</div>
 							<div class="col-12">
-								<label for="admPasswordCheck" class="form-label">Password Check<span class="red">*</span></label>
+								<label for="admPasswordCheck" class="form-label">비밀번호 확인<span class="red">*</span></label>
 								<div class="input-group has-validation">
 									<input type="text" class="form-control" th:field="*{admPasswordCheck}" placeholder="Password Check">
 									<div class="validation-div" th:if="${#fields.hasErrors('admPasswordCheck')}" th:errors="*{admPasswordCheck}">Your username is required.</div>
 								</div>
 							</div>
 							<div class="col-12">
-								<label for="admName" class="form-label">Name<span class="red">*</span></label>
+								<label for="admName" class="form-label">이름<span class="red">*</span></label>
 								<div class="input-group has-validation">
 									<input type="text" class="form-control" th:field="*{admName}" placeholder="Username">
 									<div class="validation-div" th:if="${#fields.hasErrors('admName')}" th:errors="*{admName}">Your username is required.</div>
@@ -55,14 +55,17 @@
 							</div>
 
 							<div class="col-12">
-								<label for="email" class="form-label">Email<span class="red">*</span></label>
+								<label for="email" class="form-label">이메일<span class="red">*</span></label>
 								<input type="email" class="form-control" th:field="*{email}" placeholder="you@example.com">
 								<div class="validation-div" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Please enter a valid email address for shipping updates.</div>
 							</div>
-
 							<div class="col-12">
-								<label for="address" class="form-label">Address<span class="red">*</span></label> 
-								<input type="text" class="form-control" th:field="*{address}" onclick="openZipSearch();">
+								<label for="address" class="form-label">주소<span class="red">*</span></label> 
+								<!-- <input type="text" class="form-control" th:field="*{address}" onclick="openZipSearch();" readonly> -->
+								<div class="input-group">
+									<input type="text" class="form-control" th:field="*{address}" readonly>
+									<button type="button" onclick="openZipSearch();" class="btn btn-secondary">주소찾기</button>
+								</div>
 								<div class="validation-div" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Please enter your shipping address.</div>
 								<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 								<script>
@@ -87,8 +90,8 @@
 							</div>
 							
 							<div class="col-sm-6">
-								<label for="adrsDet" class="form-label">Address Detail</label>
-								<span class="text-body-secondary">(Optional)</span>
+								<label for="adrsDet" class="form-label">상세주소</label>
+								<!-- <span class="text-body-secondary">(Optional)</span> -->
 								<input type="text" class="form-control" th:field="*{adrsDet}">
 								<div class="validation-div" th:if="${#fields.hasErrors('adrsDet')}" th:errors="*{adrsDet}">
 									Valid first name is required.
@@ -96,13 +99,13 @@
 							</div>
 							
 							<div class="col-sm-6">
-								<label for="zipcode" class="form-label">Zipcode<span class="red">*</span></label>
-								<input type="text" class="form-control" th:field="*{zipcode}">
+								<label for="zipcode" class="form-label">우편번호<span class="red">*</span></label>
+								<input type="text" class="form-control" th:field="*{zipcode}" readonly>
 								<div class="validation-div" th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}">Valid first name is required.</div>
 							</div>
 						</div>
 						<hr class="my-4">
-						<button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+						<button class="w-100 btn btn-primary btn-lg" type="submit">작성완료</button>
 						<hr class="my-4">
 					</form>
 				</div>

@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import h1y.site.jpa.domain.Admin;
+import h1y.site.jpa.dto.ResultMessage;
+import h1y.site.jpa.dto.ResultStatus;
 import h1y.site.jpa.form.AdminForm;
 import h1y.site.jpa.repository.AdminRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,24 +18,32 @@ public class AdminService {
 	private final AdminRepository adminRepository;
 	
 	@Transactional
-	public Long join(AdminForm adminForm) {
+	public ResultMessage join(AdminForm adminForm) {
 		
-		System.out.println("adminForm.getAdmName() ========== " + adminForm.getAdmName());
+		ResultMessage result = new ResultMessage(ResultStatus.SUSSECE, "등록되었습니다.", "adm/login");
 		
-		// 패스워드 입력값이 패스워드체크 입력값이랑동일한지 체크 
-		// if
-		// else 
+		this.adminIdCheck(adminForm);
+		this.adminEmailCheck(adminForm);
 		
 		Admin admin = Admin.toEntity(adminForm);
 		
-		System.out.println("admin.getAdmName() ============ " + admin.getAdmName());
-		System.out.println("admin.getAddress().getAddress() ======= " + admin.getAddress().getAddress());
-		System.out.println("admin.getAddress().getAdrsDet() ======== " + admin.getAddress().getAdrsDet());
-		System.out.println("admin.getAddress().getAdrsDet() ========== " + admin.getAddress().getZipcode());
-		
 		adminRepository.save(admin);
 		
-		return admin.getIdx();
+		return result;
+		
+	}
+	
+	private void adminIdCheck(AdminForm adminForm) {
+		
+		boolean idCheck = adminRepository.existsByAdmId(adminForm.getAdmId());
+		if ( idCheck ) throw new IllegalStateException("이미 사용중인 ID 입니다.");
+		
+	}
+	
+	private void adminEmailCheck(AdminForm adminForm) {
+		
+		boolean emailCheck = adminRepository.existsByEmail(adminForm.getEmail());
+		if ( emailCheck ) throw new IllegalStateException("이미 사용중인 이메일 입니다.");
 		
 	}
 	

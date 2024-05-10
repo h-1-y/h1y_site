@@ -1,21 +1,13 @@
 package h1y.site.jpa.repository;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import h1y.site.jpa.domain.Admin;
-import jakarta.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
 
-@Repository
-@RequiredArgsConstructor
-public class AdminRepository {
+public interface AdminRepository extends JpaRepository<Admin, Long> {
 
-	private final EntityManager em;
+	boolean existsByAdmId(String admId);
 	
-	public void save(Admin admin) {
-		
-		em.persist(admin);
-		
-	}
+	boolean existsByEmail(String email);
 	
 }
